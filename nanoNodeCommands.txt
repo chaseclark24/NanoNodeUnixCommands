@@ -1,0 +1,30 @@
+Docker Commands
+sudo docker stop <CONTAINER_ID>
+
+sudo docker exec <CONTAINER_ID> /rai_node --wallet_decrypt_unsafe --wallet=<WALLET_ID>
+
+sudo docker exec <CONTAINER_ID>  /rai_node --wallet_list
+
+sudo docker restart <CONTAINER_ID> 
+
+sudo docker exec <CONTAINER_ID> /rai_node --vote_dump
+
+RPC Commands
+curl -g -d '{  "action": "block_count" }' 127.0.01:7076
+
+curl -g -d '{  "action": "account_remove",  "wallet": "<WALLET_ID>",  "account": "WALLET_ADDRESS>" }'  <RPC_IP>
+
+curl -g -d  '{  "action": "account_list", "wallet": "<WALLET_ID>" }' <RPC_IP>
+
+curl -g -d  '{  "action": "wallet_create" }' <RPC_IP>
+
+curl -g -d  '{  "action": "wallet_destroy",  "wallet":"<WALLET_ID>" }' <RPC_IP>
+
+curl -g -d '{ "action": "version" }' <RPC_IP>
+
+curl -g -d '{"action": "account_balance", "account":"<WALLET_ADDRESS>" }' <RPC_IP>
+
+curl -g -d '{"action": "send", "wallet":"<WALLET_ID>",   "source": "<SOURCE_WALLET_ADDRESS>", "destination": "<SOURCE_WALLET_ADDRESS>", "amount": "1000000000000000000000000"  }' <RPC_IP>
+
+curl -d '{ "action": "wallet_balance_total", "wallet": "<WALLET_ID>" }' <RPC_IP>
+
